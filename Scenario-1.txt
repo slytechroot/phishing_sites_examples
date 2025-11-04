@@ -1,0 +1,15 @@
+1.	Diagram.  Please create a diagram that depicts the following scenario where Springfield Power Plant’s network has been breached by an attacker.  
+Visio, PowerPoint, LucidChart (free), GraphViz (free) or other software may be used to create the diagram.
+
+Scenario
+
+o	An attacker sends a spear phishing message with the subject “Free Donuts in Cafeteria at Noon: Details in Attachment” containing a malicious Microsoft Word attachment to Homer Simpson who opens the attachment and enables Macros when prompted to view the sweet, sweet donut details. (mmmmmmmm….donuts)
+o	Once opened, a macro is executed which runs a PowerShell command that establishes a command and control (C2) channel to a domain (https://d35fkdjh4gt99.cloudfront.net, 52.85.89.218) which ultimately resolves to a machine controlled by the attacker (Frank Grimes) in Amazon’s EC2 cloud.
+o	Frank Grimes escalates his privileges on Homer Simpson’s computer (HS-CRBNBLB, 172.16.22.4) to gain administrative access and extracts password hashes using Mimikatz.
+Frank Grimes then uses the shared local administrator password obtained from Homer Simpsons computer to move laterally on the network to Wayland Smithers’ computer (WS-ULLMAN, 192.168.58.41).
+o	Wayland Smithers’ computer contains an unprotected SSH private key file for an SSH jump box that grants access to the SCADA systems network within the power plant.
+o	Using those passwords, Frank Grimes authenticates using PuTTY to the jump box (SCRATCHY, 10.253.65.85) and then uses Nmap to scan for open ports on the SCADA network (1.1.0.0/23) for open port TCP/666 which controls the reactor.
+o	Frank identifies open port TCP/666 and connects to the reactor (BLINKY-90, 1.1.1.230) over Telnet without a password required.
+o	Frank then places malware on the system designed to alter the core temperature of the reactor in the next 30 days.
+
+2.	Defensive Controls Mapping.  Note for each step which defensive toolset or process would be used to help mitigate and detect what Frank Grimes has been able to successfully do as an attacker.  We expect detailed explanations in paragraph form.  If it is not already obvious, the exercise is Simpsons-themed, so please have fun with it!
